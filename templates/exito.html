@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Vehicular Exitoso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000; /* Fondo morado */
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-top: 50px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .btn {
+            margin: 10px 3px; /* Separación entre botones */
+            padding: 3px 6px; /* Tamaño compacto */
+            font-size: 12px; /* Reducir tamaño de texto */
+            border: 1px solid red; /* Bordes con color rojo */
+            border-radius: 3px; /* Bordes redondeados */
+            background-color: #ffffff; /* Fondo blanco */
+            color: #000000; /* Texto morado */
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: red; /* Fondo rojo al pasar el ratón */
+            color: white; /* Texto blanco */
+        }
+    </style>
+</head>
+<body>
+    <h1>¡Registro Vehicular Exitoso!</h1>
+    <p>El vehículo se ha registrado correctamente en el sistema.</p>
+    <a href="{{ url_for('formulario')}}" class="btn">Registrar otro vehículo</a>
+    <a href="{{ url_for('index')}}" class="btn">Volver al inicio</a>
+
+
+
+    <main>
+        <h2>¡Recicibido con Exito!</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </main>
+</body>
+</html>
+
